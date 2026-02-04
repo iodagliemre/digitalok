@@ -151,34 +151,35 @@ export default function App() {
 
   if (mode === "worker") {
     if (step === 0) return (
-      <div className="min-h-screen bg-gray-50 p-4">
+      <div className="min-h-screen bg-gradient-to-br from-[#f8fafc] to-[#e2e8f0] p-4">
         <div className="max-w-md mx-auto">
-          <button onClick={() => setMode("home")} className="text-blue-600 mb-4 text-sm">← Ana Sayfa</button>
-          <div className="bg-white rounded-xl shadow-lg p-6">
-            <div className="text-center mb-6">
-              <div className="text-4xl mb-2">👷</div>
-              <h2 className="text-xl font-bold text-gray-800">Çalışan Bilgileri</h2>
+          <button onClick={() => setMode("home")} className="text-blue-600 hover:text-blue-700 mb-4 text-sm font-medium transition-colors">← Ana Sayfa</button>
+          <div className="bg-white rounded-2xl shadow-lg p-8">
+            <div className="text-center mb-8">
+              <div className="text-5xl mb-3">👷</div>
+              <h2 className="text-2xl font-bold text-gray-800">Çalışan Bilgileri</h2>
+              <p className="text-gray-500 text-sm mt-1">Lütfen bilgilerinizi eksiksiz doldurun</p>
             </div>
-            <div className="space-y-4">
+            <div className="space-y-5">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Ad Soyad *</label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Ad Soyad *</label>
                 <input type="text" value={workerInfo.ad} onChange={e => setWorkerInfo(p => ({ ...p, ad: e.target.value }))}
-                  className="w-full border border-gray-300 rounded-lg px-4 py-3 text-lg outline-none focus:ring-2 focus:ring-blue-500" placeholder="Adınız Soyadınız" />
+                  className="w-full bg-white text-gray-700 border border-gray-300 rounded-lg px-4 py-3 text-base outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all placeholder-gray-400" placeholder="Adınız Soyadınız" />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">TC Kimlik No *</label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">TC Kimlik No *</label>
                 <input type="text" maxLength={11} value={workerInfo.tc} onChange={e => setWorkerInfo(p => ({ ...p, tc: e.target.value.replace(/\D/g, "").slice(0, 11) }))}
-                  className="w-full border border-gray-300 rounded-lg px-4 py-3 text-lg outline-none focus:ring-2 focus:ring-blue-500" placeholder="11 haneli TC No" inputMode="numeric" />
+                  className="w-full bg-white text-gray-700 border border-gray-300 rounded-lg px-4 py-3 text-base outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all placeholder-gray-400" placeholder="11 haneli TC No" inputMode="numeric" />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Firma Adı *</label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Firma Adı *</label>
                 <input type="text" value={workerInfo.firma} onChange={e => setWorkerInfo(p => ({ ...p, firma: e.target.value }))}
-                  className="w-full border border-gray-300 rounded-lg px-4 py-3 text-lg outline-none focus:ring-2 focus:ring-blue-500" placeholder="Çalıştığınız firma" />
+                  className="w-full bg-white text-gray-700 border border-gray-300 rounded-lg px-4 py-3 text-base outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all placeholder-gray-400" placeholder="Çalıştığınız firma" />
               </div>
             </div>
             <button onClick={() => setStep(1)}
               disabled={!workerInfo.ad.trim() || workerInfo.tc.length !== 11 || !workerInfo.firma.trim()}
-              className="w-full mt-6 bg-blue-600 hover:bg-blue-500 disabled:bg-gray-300 disabled:cursor-not-allowed text-white py-3 rounded-lg font-semibold transition-colors text-lg">
+              className="w-full mt-8 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 disabled:from-gray-300 disabled:to-gray-300 disabled:cursor-not-allowed text-white py-3.5 rounded-lg font-semibold transition-all text-lg shadow-md hover:shadow-lg">
               Devam Et →
             </button>
           </div>
